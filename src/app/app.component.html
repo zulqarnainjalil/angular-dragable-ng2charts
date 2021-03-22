@@ -1,18 +1,32 @@
-<hello name="{{ name }}"></hello>
+<!-- **************************************** -->
+<!-- **************************************** -->
+<h1>Angular 11 List dragable charts</h1>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+  <div class="example-box" *ngFor="let chart of charts" cdkDrag>
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-    <div style="display: block;" class="chart">
-      <canvas
-        baseChart
-        [datasets]="labelMFL"
-        [labels]="lineChartLabels"
-        [options]="lineChartOptions"
-        [chartType]="ChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"
-      ></canvas>
+    <app-chart (onBarClick)="barClick($event)" [chartData]="chart"> </app-chart>
+    <div class="example-handle" cdkDragHandle>
+      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+        ></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
     </div>
+  </div>
+</div>
+<!-- **************************************** -->
+<!-- **************************************** -->
+<h1>Angular 11 Free dragable charts</h1>
+<div class="example2-boundary">
+  <div
+    class="example2-box"
+    cdkDragBoundary=".example2-boundary"
+    *ngFor="let chart of charts"
+    cdkDrag
+  >
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <app-chart (onBarClick)="barClick($event)" [chartData]="chart"> </app-chart>
     <div class="example-handle" cdkDragHandle>
       <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
         <path
