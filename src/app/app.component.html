@@ -1,8 +1,13 @@
 <!-- **************************************** -->
 <!-- **************************************** -->
-<h1>Angular 11 List dragable charts</h1>
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let chart of charts" cdkDrag>
+<h1>Angular 11 Free dragable charts</h1>
+<div class="example2-boundary">
+  <div
+    class="example2-box"
+    cdkDragBoundary=".example2-boundary"
+    *ngFor="let chart of charts"
+    cdkDrag
+  >
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
     <app-chart (onBarClick)="barClick($event)" [chartData]="chart"> </app-chart>
     <div class="example-handle" cdkDragHandle>
@@ -17,14 +22,9 @@
 </div>
 <!-- **************************************** -->
 <!-- **************************************** -->
-<h1>Angular 11 Free dragable charts</h1>
-<div class="example2-boundary">
-  <div
-    class="example2-box"
-    cdkDragBoundary=".example2-boundary"
-    *ngFor="let chart of charts"
-    cdkDrag
-  >
+<h1>Angular 11 List dragable charts</h1>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let chart of charts" cdkDrag>
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
     <app-chart (onBarClick)="barClick($event)" [chartData]="chart"> </app-chart>
     <div class="example-handle" cdkDragHandle>
